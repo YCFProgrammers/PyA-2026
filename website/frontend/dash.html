@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyA Dashboard</title>
+    <link rel="stylesheet" href="/website/css/dash.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Inicio</a></li>
+                <li><a href="#" onclick="showSection('tablon')">Tablón Semanal</a></li>
+                <li><a href="#" onclick="showSection('about')">Sobre nosotros</a></li>
+                <li><a href="#" onclick="showSection('projects')">Proyectos</a></li>
+                <li><a href="#" onclick="logout()" style="color: #fda4af;">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome-area">
+            <h1><span class="marker">Programadores</span> y <span class="marker">Apasionados</span></h1>
+            <p id="user-greeting">Preparando tu entorno de desarrollo...</p>
+        </section>
+
+        <article id="home" class="content-section" style="display: block;">
+            <h2>Dashboard General</h2>
+            <p>Bienvenido al dashboard. Aquí puedes ver un resumen de tus actividades actuales.</p>
+        </article>
+
+        <article id="tablon" class="content-section" style="display: none;">
+            <h2>🚀 Tablón de Proyectos y Retos</h2>
+            <div style="background: #0f172a; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <h3>Subir mi Proyecto/Reto</h3>
+                <input type="text" id="proj-title" placeholder="Título del proyecto" style="width: 90%; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+                <textarea id="proj-desc" placeholder="Descripción del reto o link a GitHub" style="width: 90%; padding: 10px; margin-bottom: 10px; border-radius: 5px; height: 80px;"></textarea>
+                <button onclick="uploadProject()" style="background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer;">Publicar</button>
+            </div>
+            <hr style="border: 0.5px solid #334155; margin: 20px 0;">
+            <div id="projects-container">
+                <p>Cargando retos de la comunidad...</p>
+            </div>
+        </article>
+
+        <article id="about" class="content-section" style="display: none;">
+            <h2>Sobre nosotros:</h2>
+            <p>Somos un grupo de programadores dominando Python y desarrollando proyectos reales.</p>
+        </article>
+
+        <article id="projects" class="content-section" style="display: none;">
+            <h2>Nuestros Proyectos:</h2>
+            <div id="proyecto1">
+                <h3>Clasificación Inteligente</h3>
+                <p>Lógica de clasificación propietaria construida en Python.</p>
+            </div> 
+        </article>
+
+        <button id="discordbutton" onclick="window.open('https://discord.gg/Ue5buV5dbw')">
+            <strong>Únete al Discord</strong>
+        </button>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PyA Programadores y Aficionados. <br> "Análisis de código y perseverancia".</p>
+    </footer>
+
+    <script src="/website/backend_copy/script.js"></script>
+</body>
+</html>

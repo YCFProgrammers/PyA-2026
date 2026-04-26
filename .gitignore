@@ -1,0 +1,11 @@
+# Archivos de entorno (Secretos)
+*.env
+website/backend/config/log.env
+bot/token.env
+
+# Bases de datos locales
+*.db
+
+# Python caché
+__pycache__/
+*.pyc
