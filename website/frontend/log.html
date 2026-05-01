@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesion</title>
+    <title>Login Pya 2026</title>
+
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <link rel="icon" href="/img/logoserver.png" type="image/png">
-    <link rel="stylesheet" href="/website/css/fonts.css">
     <link rel="stylesheet" href="/website/css/styles.css">
 </head>
 <body>
-    <h1>Bienvenido</h1>
-    <h2>Inicia Sesion para acceder</h2>
-    <div id="g_id_onload"
-         data-client_id="834283072448-mvp1pa5lvetokr4gcp1dh6i9aav52te4.apps.googleusercontent.com"
-         data-callback="handleCredentialResponse">
-    </div>
-    <div class="g_id_signin" data-type="standard"></div>
 
+<h1>Iniciar sesión</h1>
 
-    <script src="/website/backend/log.js"></script>
+<div id="g_id_onload"
+     data-client_id="242964525648-tbobstpjrlvq7bptv5kc54nbbgn4ki9q.apps.googleusercontent.com"
+     data-callback="handleCredentialResponse">
+</div>
 
-   <footer>
-    <p>&copy; 2026 PyA Programadores y Aficionados. Todos los derechos reservados.</p>
-    </footer>
+<div class="g_id_signin"></div>
+
+<script src="/website/backend_copy/log.js"></script>
+
+<script>
+if (localStorage.getItem("session_token")) {
+    window.location.href = "dash.html";
+}
+</script>
 
 </body>
 </html>

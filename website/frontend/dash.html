@@ -8,6 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
+<script>
+
+if (!localStorage.getItem("session_token")) {
+    window.location.href = "log.html";
+}
+</script>
+
+<h2 id="user"></h2>
+
+<script>
+document.getElementById("user").innerText =
+    "Bienvenido " + localStorage.getItem("user_name");
+</script>
+
 <body>
     <header>
         <nav id="navbar">
