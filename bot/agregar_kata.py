@@ -2,6 +2,14 @@
 import asyncio
 import aiohttp
 import json
+from pathlib import Path
+
+OUTPUT_FILE = Path(__file__).resolve().parent / "exercises.json"
+
+
+def normalizar_kyu(nombre: str) -> str:
+    return nombre.replace(" ", "").lower()
+
 
 async def verificar_y_agregar(slug: str, kyu: str):
     url = f"https://www.codewars.com/api/v1/code-challenges/{slug}"
@@ -17,20 +25,22 @@ async def verificar_y_agregar(slug: str, kyu: str):
             rank   = data.get("rank", {}).get("name", "?")
             print(f"✅ Encontrado: '{nombre}' ({rank})")
 
-    with open("exersices.json", "r", encoding="utf-8") as f:
+    with OUTPUT_FILE.open("r", encoding="utf-8") as f:
         katas = json.load(f)
 
+    # normalizar kyu igual que kata.py
+    kyu = normalizar_kyu(kyu)
+
     if kyu not in katas:
-        print(f"❌ Nivel '{kyu}' no existe. Opciones: {list(katas.keys())}")
-        return
+        katas[kyu] = []
 
     if slug in katas[kyu]:
         print(f"⚠️  '{slug}' ya está en {kyu}.")
         return
 
     katas[kyu].append(slug)
-    with open("exersices.json", "w", encoding="utf-8") as f:
-        json.dump(katas, f, indent=4)
+    with OUTPUT_FILE.open("w", encoding="utf-8") as f:
+        json.dump(katas, f, indent=4, ensure_ascii=False)
 
     print(f"✅ '{slug}' agregado a {kyu} correctamente.")
 
@@ -41,4 +51,5 @@ async def main():
     await verificar_y_agregar(slug, kyu)
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
