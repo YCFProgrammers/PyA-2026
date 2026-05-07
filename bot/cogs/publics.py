@@ -1,7 +1,4 @@
 import discord
-from discord.ext import commands
-
-import discord
 import aiohttp
 import random
 import json
@@ -195,35 +192,7 @@ class Publics(commands.Cog):
     
     @commands.hybrid_command(name="help", description="Muestra todos los comandos")
     async def help_cmd(self, ctx):
-        embed = discord.Embed(
-            title="📖 Ayuda del Bot",
-            description="Lista de comandos disponibles",
-            color=discord.Color.blurple()
-        )
-
-        categorias = {}
-
-        # Agrupar por categoría
-        for cmd, info in COMMANDS_META.items():
-            categorias.setdefault(info["category"], []).append((cmd, info))
-
-        # Construir embed
-        for cat, comandos in categorias.items():
-            texto = ""
-            for cmd, info in comandos:
-                texto += f"**-{cmd}**\n"
-                texto += f"└ {info['description']}\n"
-                texto += f"└ Uso: `{info['usage']}`\n\n"
-
-            embed.add_field(
-                name=f"📂 {cat}",
-                value=texto,
-                inline=False
-            )
-
-        embed.set_footer(text=f"Pedido por {ctx.author.display_name}")
-
-        await ctx.send(embed=embed)
+        await ctx.send(embed=build_help_embed(ctx))
 
 
 
