@@ -51,6 +51,11 @@ COMMANDS_META = {
         "description": "Banea a un usuario",
         "usage": "-ban <usuario> [tiempo]",
         "category": "Moderation"
+    },
+    "ask": {
+        "description": "Pregunta a la IA",
+        "usage": "-ask <pregunta>",
+        "category": "IA"
     }
 }
 
