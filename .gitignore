@@ -9,3 +9,9 @@ bot/token.env
 # Python caché
 __pycache__/
 *.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Cache de traducciones (regenerable)
+bot/.translation_cache.json
