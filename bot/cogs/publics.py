@@ -48,8 +48,28 @@ COMMANDS_META = {
         "category": "Moderation"
     },
     "ban": {
-        "description": "Banea a un usuario",
-        "usage": "-ban <usuario> [tiempo]",
+        "description": "Banea a un usuario permanentemente",
+        "usage": "-ban <usuario> confirm:SI [razón]",
+        "category": "Moderation"
+    },
+    "mute": {
+        "description": "Silencia a un usuario por tiempo determinado",
+        "usage": "-mute <usuario> <unidad> <cantidad> [razón]",
+        "category": "Moderation"
+    },
+    "warn": {
+        "description": "Da una advertencia a un usuario",
+        "usage": "-warn <usuario> [razón]",
+        "category": "Moderation"
+    },
+    "warnings": {
+        "description": "Lista warnings de un usuario",
+        "usage": "-warnings <usuario>",
+        "category": "Moderation"
+    },
+    "clearwarns": {
+        "description": "Borra todos los warnings de un usuario",
+        "usage": "-clearwarns <usuario>",
         "category": "Moderation"
     }
 }
